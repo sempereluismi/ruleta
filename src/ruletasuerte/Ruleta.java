@@ -18,7 +18,7 @@ public class Ruleta {
     private static int premio = 1;
     
     public static void tirar() {
-        int opt = (int)(Math.random()*25);
+        int opt = (int)(Math.random()*24);
         
         switch (Ruleta[opt]) {
             case 1:

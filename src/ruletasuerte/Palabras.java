@@ -6,6 +6,5 @@ package ruletasuerte;
  */
 
 public class Palabras {
-
-
+char[][] letra = new char[22][22];
 }

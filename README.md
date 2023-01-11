@@ -5,12 +5,12 @@
 ```
 git add .
 git commit -m "cambio que has hecho"
-git push origin master
+git push origin main
 ```
 
 
 ## Copiar lo existente en el repositorio
 
 ```
-git pull origin master
+git pull origin main
 ```

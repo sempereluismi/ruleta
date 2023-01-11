@@ -11,10 +11,8 @@ public class RuletaSuerte {
      */
     public static void main(String[] args) {
         
-        
-        for(int i = 0; i < 100; i++) {
-            Ruleta.tirar();
-        }
+        Jugador j1 = new Jugador("Pepe", true);
+        j1.tirarRuleta();
     }
 
 }

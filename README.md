@@ -4,7 +4,7 @@
 
 ```
 git add .
-git commit "cambio que has hecho"
+git commit -m "cambio que has hecho"
 git push origin master
 ```
 

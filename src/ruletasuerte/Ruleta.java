@@ -14,22 +14,27 @@ public class Ruleta {
     102: x2
     12: 1/2
     */
-    private final static int [] Ruleta = {200, 1, 102, 100, 50, 100, 150, 2, 150, 100, 50, 100, 200, 50, 150, 12, 50, 150, 100, 3, 150, 100, 50, 100};
-    private static int premio = 1;
+
+    private int [] ruleta = {200, 1, 102, 100, 50, 100, 150, 2, 150, 100, 50, 100, 200, 50, 150, 12, 50, 150, 100, 3, 150, 100, 50, 100};
+    private int premio;
+
+    public Ruleta() {
+        this.premio = 0;
+    }
+
     
-    public static void tirar() {
+    
+    public int tirar() {
+        premio = 0;
         int opt = (int)(Math.random()*24);
         
-        switch (Ruleta[opt]) {
+        switch (this.ruleta[opt]) {
             case 1:
-                System.out.println("QUIEBRA");
-                break;
+                return -1;
             case 2:
-                System.out.println("PIERDE TURNO");
-                break;
+                return -2;
             case 3:
-                System.out.println("COMODÍN");
-                break;
+                return -3;
             case 102:
                 System.out.println("x2");
                 premio *= 2;
@@ -39,11 +44,11 @@ public class Ruleta {
                 premio /= 2;
                 break;
             default:
-                premio += Ruleta[opt];
+                premio += ruleta[opt];
         }
         
         
-        System.out.println(premio);
+        return premio;
     }
     
     

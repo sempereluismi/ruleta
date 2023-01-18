@@ -36,11 +36,9 @@ public class Ruleta {
             case 3:
                 return -3;
             case 102:
-                System.out.println("x2");
                 premio *= 2;
                 break;
             case 12:
-                System.out.println("1/2");
                 premio /= 2;
                 break;
             default:

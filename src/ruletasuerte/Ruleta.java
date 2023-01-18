@@ -23,7 +23,10 @@ public class Ruleta {
     }
 
     
-    
+    /**
+    * Utilizamos un Math.random y un switch case 
+    * para elegir una de las opciones de la ruleta aleatoriamente.
+    */
     public int tirar() {
         premio = 0;
         int opt = (int)(Math.random()*24);

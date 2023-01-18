@@ -44,7 +44,9 @@ public class Tarjetas {
 
     };
 
-
+    /**
+     * Este método muestra todas las letras del panel.
+     */
     public static void mostrarPanel() {
         for (int i = 0; i < paneles[0].length; i++) {
 
@@ -61,6 +63,10 @@ public class Tarjetas {
         System.out.println("");
     }
  
+    /**
+     * Este método cambia el estado de la letra escogida por el jugador
+     * y cambia, y llama a mostrarPanel().
+     */
     public static boolean buscarLetra( char letra ) {
 
         boolean acierto = false;

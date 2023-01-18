@@ -67,7 +67,10 @@ public class Jugador {
             System.out.println("Tienes menos de 100 €");
         }
     }
-
+    
+    /*
+     * Este método añade una letra que elija el jugador
+     */
     public void pedirLetra() {
         Scanner s = new Scanner(System.in);
         String l;

@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Jugador {
     
-    private int dinero = 1000, comodin;
+    private int dinero = 0, comodin;
     private boolean juega;
     private String nombre;
 

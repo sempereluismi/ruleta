@@ -11,10 +11,7 @@ public class RuletaSuerte {
      */
     public static void main(String[] args) {
 
-        Jugador j1 = new  Jugador("pepe el pepazos", true);
-
-        
-        
+                
 
     }
 

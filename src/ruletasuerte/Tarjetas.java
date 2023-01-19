@@ -138,40 +138,7 @@ public class Tarjetas {
             { 'O', 't' },
             { ' ', 't' },
             { ' ', 't' },
-        },
-
-        {
-            { 'T', 't' },
-            { 'O', 't' },
-            { 'M', 't' },
-            { 'A', 't' },
-            { ' ', 't' },
-            { 'G', 't' },
-            { 'E', 't' },
-            { 'R', 't' },
-            { 'O', 't' },
-            { 'M', 't' },
-            { 'A', 't' },
-            { ' ', 't' },
-            { 'P', 't' },
-            { 'A', 't' },
-            { 'S', 't' },
-            { 'T', 't' },
-            { 'I', 't' },
-            { 'L', 't' },
-            { 'L', 't' },
-            { 'A', 't' },
-            { 'S', 't' },
-            { ' ', 't' },
-            { 'D', 't' },
-            { 'E', 't' },
-            { ' ', 't' },
-            { 'G', 't' },
-            { 'O', 't' },
-            { 'M', 't' },
-            { 'A', 't' },
-            { ' ', 't' },
-        },
+        }
 
     };
 
@@ -212,5 +179,25 @@ public class Tarjetas {
         mostrarPanel();
         return acierto;
     }
+
+    private static String[] pistas = {
+        {
+            { "Un cordial saludo" },
+        },
+
+        {
+            { "No se llevan nada bien" },
+        },
+
+        {
+            { "Un peculiar postre" },
+        },
+
+        {
+            { "Se pasa todo el dia en el sofa" },
+        }
+            
+
+    };
 
 }

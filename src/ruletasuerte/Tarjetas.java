@@ -7,6 +7,9 @@ package ruletasuerte;
 
 public class Tarjetas {
 
+    /**
+     * Los paneles enteros divididos por letras.
+     */
     private static char[][][] paneles = {
         {
             { 'H', 't' },
@@ -180,6 +183,9 @@ public class Tarjetas {
         return acierto;
     }
 
+    /**
+     * Las pistas para saber con que esta relacionado un panel.
+     */
     private static String[] pistas = {
         {
             { "Un cordial saludo" },

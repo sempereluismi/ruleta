@@ -1,5 +1,7 @@
 package ruletasuerte;
-
+/*
+ * En esta clase implementamos los menús para el funcionamiento del programa por parte del usuario.
+ */
 public class Juego {
     
 

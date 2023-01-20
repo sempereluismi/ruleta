@@ -5,6 +5,9 @@ package ruletasuerte;
  * @author a22adriancs
  */
 
+/*
+ * Aquí tenemos tanto las pistas como las respuestas que debe adivinar el jugador.
+ */
 public class Tarjetas {
 
     /**

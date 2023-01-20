@@ -5,6 +5,9 @@ package ruletasuerte;
  * @author a22adriancs
  */
 
+/*
+ * En esta clase implementamos todas las letras para que el programa sepa que hacer cuando un jugador seleccione una.
+ */
 public class Letras {
 
     /*

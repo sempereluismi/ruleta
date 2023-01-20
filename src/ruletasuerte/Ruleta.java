@@ -4,6 +4,10 @@ package ruletasuerte;
  *
  * @author a22luismsg
  */
+
+ /*
+ * En esta clase tenemos las diferentes opciones de la ruleta.
+ */
 public class Ruleta {
     
     /*

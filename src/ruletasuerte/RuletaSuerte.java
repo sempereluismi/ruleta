@@ -11,8 +11,8 @@ public class RuletaSuerte {
      */
     public static void main(String[] args) {
 
-        Tarjetas.mostrarPanel();
-
+        Juego juego = new Juego();
+        juego.main();
     }
 
 }

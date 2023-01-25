@@ -30,12 +30,15 @@ public class Jugador {
         this.juega = juega;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     /**
      * Invoca el método de la clase ruleta de tirar y actua en consecuencia
      */
     public boolean tirarRuleta() {
-        Ruleta r = new Ruleta();
-        aux = r.tirar();
+        Ruleta.tirar();
 
         switch( aux ) {
             case -1:
@@ -70,7 +73,7 @@ public class Jugador {
             s.close();
             if( vocal == 'a' || vocal == 'e' || vocal == 'i' || vocal == 'o' || vocal == 'u') {
                 dinero -= 50;
-                Tarjetas.buscarLetra(vocal);
+                Tarjetas.buscarLetra(vocal, Ruleta.getPanel());
             } else {
                 System.out.println("No es una vocal");
                 comprarVocal();
@@ -97,7 +100,7 @@ public class Jugador {
         /*
          * El método buscar letra retorna true o false dependiendo de si acierta o no
          */
-        aux = Tarjetas.buscarLetra(letra);
+        aux = Tarjetas.buscarLetra(letra, Ruleta.getPanel());
 
         //si tiene un comodín no pierde el turno
         if( comodin > 0 && !aux ) {

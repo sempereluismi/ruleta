@@ -1,5 +1,7 @@
 package ruletasuerte;
 
+import java.util.ArrayList;
+
 /**
  *
  * Esta clase es donde se almacenan los paneles
@@ -11,17 +13,12 @@ package ruletasuerte;
  */
 public class Tarjetas {
 
+    private static ArrayList<Integer> panelesUsados = new ArrayList<Integer>();
+
     /**
      * Las pistas para saber con que esta relacionado un panel.
      */
-    // private static String[] pistas = {
-
-    //         { "Un cordial saludo" },
-    //         { "No se llevan nada bien" },
-    //         { "Un peculiar postre" },
-    //         { "Se pasa todo el dia en el sofa" },
-
-    // };
+    private static String[] pistas = { "Un cordial saludo", "No se llevan nada bien", "Un peculiar postre", "Se pasa todo el dia en el sofa"};
 
     /**
      * Los paneles enteros divididos por letras.
@@ -161,41 +158,70 @@ public class Tarjetas {
 
     };
 
+    public static int elegirPanel() {
+        int random;
+
+        
+        do {
+            random = (int) (Math.random() * 4);
+        } while ( panelesUsados.contains(random) );
+
+        panelesUsados.add( random );
+        return random;
+    }
+
     /**
      * Este método muestra todas las letras del panel.
      */
-    public static void mostrarPanel() {
-        for (int i = 0; i < paneles[0].length; i++) {
+    public static boolean mostrarPanel(int n) {
+        for (int i = 0; i < paneles[n].length; i++) {
 
             if (i % 10 == 0)
                 System.out.println("");
             // System.out.println(panel1[i][0]);
-            if (paneles[0][i][1] == 'l' || paneles[0][i][0] == ' ') {
-                System.out.print(paneles[0][i][0] + " ");
+            if (paneles[n][i][1] == 'l' || paneles[n][i][0] == ' ') {
+                System.out.print(paneles[n][i][0] + " ");
             } else {
                 System.out.print("+" + " ");
             }
 
         }
         System.out.println("");
+        System.out.println(pistas[n]);
+
+        //Comprueba que el panel esta completo
+        for (int i = 0; i < paneles[n].length; i++) {
+            if( paneles[n][i][0] != ' ' && paneles[n][i][0] == 'l') return true;
+        }
+        return false;
+    }
+
+    public static boolean resolverPanel( String cadena, int n ) {
+        boolean resuelto = true;
+        
+        for( int i = 0; i < cadena.length(); i++ ) {
+            if( Character.toLowerCase(cadena.charAt(i)) != Character.toLowerCase(paneles[n][i][0]) ) resuelto = false;
+        }
+
+        return resuelto;
     }
 
     /**
      * Este método cambia el estado de la letra escogida por el jugador
      * y cambia, y llama a mostrarPanel().
      */
-    public static boolean buscarLetra(char letra) {
+    public static boolean buscarLetra(char letra, int n) {
 
         boolean acierto = false;
 
-        for (int i = 0; i < paneles[0].length; i++) {
+        for (int i = 0; i < paneles[n].length; i++) {
 
-            if (Character.toLowerCase(paneles[0][i][0]) == Character.toLowerCase(letra)) {
-                paneles[0][i][1] = 'l';
+            if (Character.toLowerCase(paneles[n][i][0]) == Character.toLowerCase(letra)) {
+                paneles[n][i][1] = 'l';
                 acierto = true;
             }
         }
-        mostrarPanel();
+        mostrarPanel(n);
         return acierto;
     }
 

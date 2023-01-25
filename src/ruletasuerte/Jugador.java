@@ -8,6 +8,9 @@ import java.util.Scanner;
  * @autor luis miguel
  */
 
+/*
+ * En esta clase creamos las opciones que tienen los jugadores durante una partida.
+ */
 public class Jugador {
     
     private int dinero = 0, comodin, aux;

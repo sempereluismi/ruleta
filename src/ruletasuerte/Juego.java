@@ -2,6 +2,9 @@ package ruletasuerte;
 
 import java.util.Scanner;
 
+/*
+ * En esta clase implementamos los menús para el funcionamiento del programa por parte del usuario.
+ */
 public class Juego {
 
     private String n1, n2, n3;

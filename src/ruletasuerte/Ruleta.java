@@ -59,10 +59,12 @@ public class Ruleta {
                 premio /= 2;
                 break;
             default:
+                premio += ruleta[opt];
+                Tarjetas.mostrarPanel(Ruleta.getPanel());
                 System.out.println("Introduce una letra");
                 letra = sc.nextLine();
                 Tarjetas.buscarLetra(letra.charAt(0), panel);
-                premio += ruleta[opt];
+                
         }
         return premio;
     }

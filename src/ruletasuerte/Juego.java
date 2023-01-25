@@ -30,8 +30,7 @@ public class Juego {
                     System.out.println("Adiós :)");
             }
 
-        } while (opt != "2");
-        sc.close();
+        } while (opt.charAt(0) != '2');
     }
 
     private void jugar() {
@@ -70,6 +69,7 @@ public class Juego {
             }
 
             while (j2.getJuega()) {
+                System.out.println("Turno de " + j2.getNombre());
                 continua = j2.tirarRuleta();
                 if (!continua) j3.setJuega(true);
 
@@ -95,6 +95,7 @@ public class Juego {
             }
 
             while (j3.getJuega()) {
+                System.out.println("Turno de " + j3.getNombre());
                 continua = j3.tirarRuleta();
                 if (!continua) j1.setJuega(true);
 
@@ -119,7 +120,6 @@ public class Juego {
                 }
             }
         }
-        sc.close();
     }
 
     /*
@@ -136,6 +136,5 @@ public class Juego {
 
         System.out.println("Inserta el nombre del jugador 3");
         n3 = sc.nextLine();
-        sc.close();
     }
 }

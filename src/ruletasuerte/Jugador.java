@@ -44,17 +44,24 @@ public class Jugador {
             case -1:
                 dinero = 0;
                 juega = false;
+                System.out.println(nombre + " tiene " + dinero + "€");
                 return false;
+                
             case -2: 
                 juega = false;
+                System.out.println(nombre + " tiene " + dinero + "€");
                 return false;
             case -3:
                 comodin++;
+                System.out.println(nombre + " tiene " + dinero + "€");
                 return true;
             default:
                 dinero += aux;
+                System.out.println(nombre + " tiene " + dinero + "€");
                 return true;
         }
+
+
     }
 
 

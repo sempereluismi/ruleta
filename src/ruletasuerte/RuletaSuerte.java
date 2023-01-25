@@ -11,7 +11,7 @@ public class RuletaSuerte {
      */
     public static void main(String[] args) {
 
-                
+        Tarjetas.mostrarPanel();
 
     }
 

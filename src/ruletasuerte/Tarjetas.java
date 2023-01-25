@@ -2,11 +2,12 @@ package ruletasuerte;
 
 /**
  *
- * @author a22adriancs
+ * Esta clase es donde se almacenan los paneles
  */
 
 public class Tarjetas {
 
+    private static String[] pistas = {""};
     private static char[][][] paneles = {
         {
             { 'H', 't' },

@@ -1,6 +1,5 @@
 package ruletasuerte;
 
-import javax.security.auth.callback.TextInputCallback;
 
 
 import java.util.Scanner;
@@ -11,7 +10,7 @@ import java.util.Scanner;
 
 public class Jugador {
     
-    private int dinero = 0, comodin;
+    private int dinero = 0, comodin, aux;
     private boolean juega;
     private String nombre;
 
@@ -20,24 +19,35 @@ public class Jugador {
         this.juega = juega;
     }
 
+    public boolean getJuega() {
+        return juega;
+    }
+
+    public void setJuega( boolean juega ) {
+        this.juega = juega;
+    }
+
     /**
      * Invoca el método de la clase ruleta de tirar y actua en consecuencia
      */
-    public void tirarRuleta() {
+    public boolean tirarRuleta() {
         Ruleta r = new Ruleta();
-        dinero = r.tirar();
+        aux = r.tirar();
 
-        switch( dinero ) {
+        switch( aux ) {
             case -1:
                 dinero = 0;
                 juega = false;
-                break;
+                return false;
             case -2: 
                 juega = false;
-                break;
+                return false;
             case -3:
                 comodin++;
-                break;
+                return true;
+            default:
+                dinero += aux;
+                return true;
         }
     }
 
@@ -54,7 +64,7 @@ public class Jugador {
             System.out.println("ingresa una vocal");
             l = s.nextLine();
             vocal = Character.toLowerCase(l.charAt(0));
-            
+            s.close();
             if( vocal == 'a' || vocal == 'e' || vocal == 'i' || vocal == 'o' || vocal == 'u') {
                 dinero -= 50;
                 Tarjetas.buscarLetra(vocal);
@@ -80,7 +90,7 @@ public class Jugador {
         System.out.println("ingresa una letra");
         l = s.nextLine();
         letra = Character.toLowerCase(l.charAt(0));
-
+        s.close();
         /*
          * El método buscar letra retorna true o false dependiendo de si acierta o no
          */

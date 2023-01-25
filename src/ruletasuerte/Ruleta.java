@@ -1,42 +1,50 @@
 package ruletasuerte;
 
+import java.util.Scanner;
+
 /**
  *
  * @author a22luismsg
  */
 public class Ruleta {
-    
-    /*
-    OPCIONES DE LA RULETA:
-    1: quiebra
-    2: pierde turno
-    3: comodín
-    102: x2
-    12: 1/2
-    */
 
-    private int [] ruleta = {200, 1, 102, 100, 50, 100, 150, 2, 150, 100, 50, 100, 200, 50, 150, 12, 50, 150, 100, 3, 150, 100, 50, 100};
+    /*
+     * OPCIONES DE LA RULETA:
+     * 1: quiebra
+     * 2: pierde turno
+     * 3: comodín
+     * 102: x2
+     * 12: 1/2
+     */
+
+    private int[] ruleta = { 200, 1, 102, 100, 50, 100, 150, 2, 150, 100, 50, 100, 200, 50, 150, 12, 50, 150, 100, 3,
+            150, 100, 50, 100 };
     private int premio;
+    private String letra;
 
     public Ruleta() {
         this.premio = 0;
     }
 
-    
     /**
-    * Utilizamos un Math.random y un switch case 
-    * para elegir una de las opciones de la ruleta aleatoriamente.
-    */
+     * Utilizamos un Math.random y un switch case
+     * para elegir una de las opciones de la ruleta aleatoriamente.
+     */
     public int tirar() {
+
+        Scanner sc = new Scanner(System.in);
         premio = 0;
-        int opt = (int)(Math.random()*24);
-        
+        int opt = (int) (Math.random() * 24);
+
         switch (this.ruleta[opt]) {
             case 1:
                 return -1;
             case 2:
                 return -2;
             case 3:
+                System.out.println("Introduce una letra");
+                letra = sc.nextLine();
+                Tarjetas.buscarLetra(letra.charAt(0));
                 return -3;
             case 102:
                 premio *= 2;
@@ -45,12 +53,13 @@ public class Ruleta {
                 premio /= 2;
                 break;
             default:
+                System.out.println("Introduce una letra");
+                letra = sc.nextLine();
+                Tarjetas.buscarLetra(letra.charAt(0));
                 premio += ruleta[opt];
         }
-        
-        
+
         return premio;
     }
-    
-    
+
 }

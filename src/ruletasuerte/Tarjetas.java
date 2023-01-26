@@ -158,6 +158,9 @@ public class Tarjetas {
 
     };
 
+    /**
+     * Este método escoge un panel al azar.
+     */
     public static int elegirPanel() {
         int random;
 
@@ -196,6 +199,9 @@ public class Tarjetas {
         return false;
     }
 
+    /**
+     * Este método permite al jugador la opcion de resolver el panel entero.
+     */
     public static boolean resolverPanel( String cadena, int n ) {
         boolean resuelto = true;
         

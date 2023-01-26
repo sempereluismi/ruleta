@@ -37,24 +37,32 @@ public class Jugador {
     /**
      * Invoca el método de la clase ruleta de tirar y actua en consecuencia
      */
+    // TODO arreglar premio * letras desbloqueadas
     public boolean tirarRuleta() {
-        Ruleta.tirar();
+        aux = Ruleta.tirar();
 
         switch( aux ) {
             case -1:
                 dinero = 0;
                 juega = false;
+                System.out.println(nombre + " tiene " + dinero + "€");
                 return false;
+                
             case -2: 
                 juega = false;
+                System.out.println(nombre + " tiene " + dinero + "€");
                 return false;
             case -3:
                 comodin++;
+                System.out.println(nombre + " tiene " + dinero + "€");
                 return true;
             default:
                 dinero += aux;
+                System.out.println(nombre + " tiene " + dinero + "€");
                 return true;
         }
+
+
     }
 
 
@@ -65,6 +73,7 @@ public class Jugador {
         Scanner s = new Scanner(System.in);
         String l;
         char vocal;
+        int aux = 0;
         if( dinero >= 100 ) {
             
             System.out.println("ingresa una vocal");
@@ -73,7 +82,11 @@ public class Jugador {
             s.close();
             if( vocal == 'a' || vocal == 'e' || vocal == 'i' || vocal == 'o' || vocal == 'u') {
                 dinero -= 50;
-                Tarjetas.buscarLetra(vocal, Ruleta.getPanel());
+                aux = Tarjetas.buscarLetra(vocal, Juego.getPanel());
+                if( aux == 0 ) {
+                    System.out.println("ohhhhhh fallaste :( pierdes turno");
+                    juega = false;
+                }
             } else {
                 System.out.println("No es una vocal");
                 comprarVocal();
@@ -91,19 +104,19 @@ public class Jugador {
         Scanner s = new Scanner(System.in);
         String l;
         char letra;
-        boolean aux;
+        int aux;
         
         System.out.println("ingresa una letra");
         l = s.nextLine();
         letra = Character.toLowerCase(l.charAt(0));
         s.close();
         /*
-         * El método buscar letra retorna true o false dependiendo de si acierta o no
+         * El método buscar letra retorna el numero de letras acertadas dependiendo de si acierta o no
          */
-        aux = Tarjetas.buscarLetra(letra, Ruleta.getPanel());
+        aux = Tarjetas.buscarLetra(letra, Juego.getPanel());
 
         //si tiene un comodín no pierde el turno
-        if( comodin > 0 && !aux ) {
+        if( comodin > 0 && aux == 0 ) {
             System.out.println("Tienes comodín no pierdes turno");
         } else {
             System.out.println("ohhhhhh fallaste :( pierdes turno");

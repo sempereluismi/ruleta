@@ -23,8 +23,9 @@ public class Juego {
         mostrarMenu();
     }
 
-
-
+    /*
+    * Mostramos el menú para el usuario
+     */
     private void mostrarMenu() {
         Scanner sc = new Scanner(System.in);
         do {

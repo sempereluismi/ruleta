@@ -25,12 +25,9 @@ public class Ruleta {
              150, 100, 50, 100 };
     private static int premio;
     private static String letra;
-    private static int panel = Tarjetas.elegirPanel();
 
 
-    public static int getPanel () {
-        return panel;
-    }
+
 
     /**
      * Utilizamos un Math.random y un switch case
@@ -50,7 +47,7 @@ public class Ruleta {
             case 3:
                 System.out.println("Introduce una letra");
                 letra = sc.nextLine();
-                Tarjetas.buscarLetra(letra.charAt(0), panel);
+                Tarjetas.buscarLetra(letra.charAt(0), Juego.getPanel());
                 return -3;
             case 102:
                 premio *= 2;
@@ -60,10 +57,10 @@ public class Ruleta {
                 break;
             default:
                 premio += ruleta[opt];
-                Tarjetas.mostrarPanel(Ruleta.getPanel());
+                Tarjetas.mostrarPanel(Juego.getPanel());
                 System.out.println("Introduce una letra");
                 letra = sc.nextLine();
-                Tarjetas.buscarLetra(letra.charAt(0), panel);
+                Tarjetas.buscarLetra(letra.charAt(0), Juego.getPanel());
                 
         }
         return premio;

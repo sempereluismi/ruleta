@@ -200,7 +200,9 @@ public class Tarjetas {
         boolean resuelto = true;
         
         for( int i = 0; i < cadena.length(); i++ ) {
-            if( Character.toLowerCase(cadena.charAt(i)) != Character.toLowerCase(paneles[n][i][0]) ) resuelto = false;
+            if( Character.toLowerCase(cadena.charAt(i)) != paneles[n][i][0] ) {
+                resuelto = false;
+            }
         }
 
         return resuelto;
@@ -210,19 +212,19 @@ public class Tarjetas {
      * Este método cambia el estado de la letra escogida por el jugador
      * y cambia, y llama a mostrarPanel().
      */
-    public static boolean buscarLetra(char letra, int n) {
+    public static int buscarLetra(char letra, int n) {
 
-        boolean acierto = false;
+        int contador = 0;
 
         for (int i = 0; i < paneles[n].length; i++) {
 
             if (Character.toLowerCase(paneles[n][i][0]) == Character.toLowerCase(letra)) {
                 paneles[n][i][1] = 'l';
-                acierto = true;
+                contador++;
             }
         }
         mostrarPanel(n);
-        return acierto;
+        return contador;
     }
 
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author a22luismsg
  */
 
- /*
+/*
  * En esta clase tenemos las diferentes opciones de la ruleta.
  */
 public class Ruleta {
@@ -21,13 +21,11 @@ public class Ruleta {
      * 12: 1/2
      */
 
-    private static int[] ruleta = { 200, 1, 102, 100, 50, 100, 150, 2, 150, 100, 50, 100, 200, 50, 150, 12, 50, 150, 100, 3,
-             150, 100, 50, 100 };
-    private static int premio;
+    private static int[] ruleta = { 200, 1, 102, 100, 50, 100, 150, 2, 150, 100, 50, 100, 200, 50, 150, 12, 50, 150,
+            100, 3,
+            150, 100, 50, 100 };
+    private static int premio, letras = 0;
     private static String letra;
-
-
-
 
     /**
      * Utilizamos un Math.random y un switch case
@@ -50,18 +48,19 @@ public class Ruleta {
                 Tarjetas.buscarLetra(letra.charAt(0), Juego.getPanel());
                 return -3;
             case 102:
+                premio += ruleta[opt];
                 premio *= 2;
                 break;
             case 12:
+                premio += ruleta[opt];
                 premio /= 2;
                 break;
             default:
-                premio += ruleta[opt];
                 Tarjetas.mostrarPanel(Juego.getPanel());
                 System.out.println("Introduce una letra");
                 letra = sc.nextLine();
-                Tarjetas.buscarLetra(letra.charAt(0), Juego.getPanel());
-                
+                letras = Tarjetas.buscarLetra(letra.charAt(0), Juego.getPanel());
+                premio += ruleta[opt] * letras;
         }
         return premio;
     }

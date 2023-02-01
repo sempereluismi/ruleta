@@ -1,6 +1,5 @@
 package ruletasuerte;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,23 +28,18 @@ public class Juego {
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("1.- Jugar");
-            System.out.println("2.- Jugadores");
-            System.out.println("3.- Salir");
+            System.out.println("2.- Salir");
             opt = sc.nextLine();
 
             switch (opt.charAt(0)) {
                 case '1':
                     if( jugadores.size() != 3) {
-                        System.err.println("NO PUEDES JUGAR SIN JUGADORES PEDAZO DE REMIL");
                         jugadores();
                     } else {
                         jugar();
                     }
                     break;
                 case '2':
-                    jugadores();
-                    break;
-                case '3':
                     System.out.println("Adiós :)");
             }
 
@@ -88,8 +82,8 @@ public class Juego {
     
                     switch (opt.charAt(0)) {
                         case '1':
-                            resuelto = jugadores.get(i).tirarRuleta();
-                            if(resuelto) {
+                            jugadores.get(i).tirarRuleta();
+                            if(Tarjetas.estaResuelto( Juego.getPanel() )) {
                                 numResueltos++;
                                 jugar();
                             }
@@ -105,6 +99,10 @@ public class Juego {
                             break;
                         case '3':
                             jugadores.get(i).comprarVocal();
+                            if(Tarjetas.estaResuelto( Juego.getPanel() )) {
+                                numResueltos++;
+                                jugar();
+                            }
                             break;
                     }
                 }
@@ -122,7 +120,7 @@ public class Juego {
         Scanner sc = new Scanner(System.in);
 
         for( int i = 0; i < 3; i++ ) {
-            System.out.println("Inserta el nombre del jugador " + i+1);
+            System.out.println("Inserta el nombre del jugador " + (i+1));
             nombre = sc.nextLine();
             jugadores.add(new Jugador(nombre, false));
         }

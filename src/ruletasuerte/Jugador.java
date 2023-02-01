@@ -37,7 +37,6 @@ public class Jugador {
     /**
      * Invoca el método de la clase ruleta de tirar y actua en consecuencia
      */
-    // TODO arreglar premio * letras desbloqueadas
     public boolean tirarRuleta() {
         aux = Ruleta.tirar();
 
@@ -62,6 +61,7 @@ public class Jugador {
                 return true;
         }
 
+        
 
     }
 
@@ -79,7 +79,6 @@ public class Jugador {
             System.out.println("ingresa una vocal");
             l = s.nextLine();
             vocal = Character.toLowerCase(l.charAt(0));
-            s.close();
             if( vocal == 'a' || vocal == 'e' || vocal == 'i' || vocal == 'o' || vocal == 'u') {
                 dinero -= 50;
                 aux = Tarjetas.buscarLetra(vocal, Juego.getPanel());
@@ -109,7 +108,6 @@ public class Jugador {
         System.out.println("ingresa una letra");
         l = s.nextLine();
         letra = Character.toLowerCase(l.charAt(0));
-        s.close();
         /*
          * El método buscar letra retorna el numero de letras acertadas dependiendo de si acierta o no
          */

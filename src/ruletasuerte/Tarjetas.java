@@ -15,6 +15,8 @@ public class Tarjetas {
 
     private static ArrayList<Integer> panelesUsados = new ArrayList<Integer>();
 
+    private static boolean resuelto = false;
+
     /**
      * Las pistas para saber con que esta relacionado un panel.
      */
@@ -158,6 +160,11 @@ public class Tarjetas {
 
     };
 
+
+    public static boolean getResuelto() {
+        return resuelto;
+    }
+
     public static int elegirPanel() {
         int random;
 
@@ -173,7 +180,7 @@ public class Tarjetas {
     /**
      * Este método muestra todas las letras del panel.
      */
-    public static boolean mostrarPanel(int n) {
+    public static void mostrarPanel(int n) {
         for (int i = 0; i < paneles[n].length; i++) {
 
             if (i % 10 == 0)
@@ -182,30 +189,18 @@ public class Tarjetas {
             if (paneles[n][i][1] == 'l' || paneles[n][i][0] == ' ') {
                 System.out.print(paneles[n][i][0] + " ");
             } else {
-                System.out.print("+" + " ");
+                System.out.print("#" + " ");
             }
 
         }
         System.out.println("");
         System.out.println(pistas[n]);
-
-        //Comprueba que el panel esta completo
-        for (int i = 0; i < paneles[n].length; i++) {
-            if( paneles[n][i][0] != ' ' && paneles[n][i][0] == 'l') return true;
-        }
-        return false;
+        resuelto = estaResuelto(n);
     }
 
     public static boolean resolverPanel( String cadena, int n ) {
-        boolean resuelto = true;
-        
-        for( int i = 0; i < cadena.length(); i++ ) {
-            if( Character.toLowerCase(cadena.charAt(i)) != paneles[n][i][0] ) {
-                resuelto = false;
-            }
-        }
-
-        return resuelto;
+        //TODO RESOLVER PANEL
+        return true;
     }
 
     /**
@@ -226,5 +221,14 @@ public class Tarjetas {
         mostrarPanel(n);
         return contador;
     }
+
+    public static boolean estaResuelto(int n) {
+        boolean r = true;
+        for ( int i = 0; i < paneles[n].length; i++ ) {
+            if( paneles[n][i][1] != 'l' ) r = false;
+        }
+        return r;
+    }
+
 
 }

@@ -20,8 +20,23 @@ public class Tarjetas {
     /**
      * Las pistas para saber con que esta relacionado un panel.
      */
-    private static String[] pistas = { "Un cordial saludo", "No se llevan nada bien", "Un peculiar postre", "Se pasa todo el dia en el sofa"};
+    private static String[] pistas = { 
+        "Un cordial saludo",
+        "No se llevan nada bien",
+        "Un peculiar postre",
+        "Se pasa todo el dia en el sofa"
+    };
 
+
+    /*
+     * Array que contiene las soluciones de los paneles en string
+     */
+    private static String[] sol = {
+        "HOLA BUENAS PROGRAMAR MOLA",
+        "ACTUAN COMO PERROS Y GATOS",
+        "HELADO DE MENTA Y CHOCOLATE",
+        "BUSCA TRABAJO PEDAZO DE VAGO"
+    };
     /**
      * Los paneles enteros divididos por letras.
      */
@@ -160,17 +175,14 @@ public class Tarjetas {
 
     };
 
-<<<<<<< HEAD
 
     public static boolean getResuelto() {
         return resuelto;
     }
 
-=======
     /**
      * Este método escoge un panel al azar.
      */
->>>>>>> 4de961f43f6e6d80155183c6f569cc9e3611e75e
     public static int elegirPanel() {
         int random;
 
@@ -208,8 +220,7 @@ public class Tarjetas {
      * Este método permite al jugador la opcion de resolver el panel entero.
      */
     public static boolean resolverPanel( String cadena, int n ) {
-        //TODO RESOLVER PANEL
-        return true;
+        return ( cadena.equalsIgnoreCase(sol[n]) );
     }
 
     /**
@@ -239,5 +250,5 @@ public class Tarjetas {
         return r;
     }
 
-
+    
 }

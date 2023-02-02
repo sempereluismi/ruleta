@@ -86,6 +86,9 @@ public class Juego {
                             jugadores.get(i).tirarRuleta();
                             if(Tarjetas.estaResuelto( Juego.getPanel() )) {
                                 numResueltos++;
+                                jugadores.get(i).setDineroTotal( jugadores.get(i).getDinero() );
+                                System.out.println("HAS RESUELTO EL PANEL");
+                                System.out.println("HAS GANADO " + jugadores.get(i).getDinero() + "€");
                                 jugar();
                             }
                             break;
@@ -95,6 +98,9 @@ public class Juego {
                             resuelto = Tarjetas.resolverPanel(str, panel);
                             if(resuelto) {
                                 numResueltos++;
+                                jugadores.get(i).setDineroTotal( jugadores.get(i).getDinero() );
+                                System.out.println("HAS RESUELTO EL PANEL");
+                                System.out.println("HAS GANADO " + jugadores.get(i).getDinero() + "€");
                                 jugar();
                             }
                             break;
@@ -102,6 +108,9 @@ public class Juego {
                             jugadores.get(i).comprarVocal();
                             if(Tarjetas.estaResuelto( Juego.getPanel() )) {
                                 numResueltos++;
+                                jugadores.get(i).setDineroTotal( jugadores.get(i).getDinero() );
+                                System.out.println("HAS RESUELTO EL PANEL");
+                                System.out.println("HAS GANADO " + jugadores.get(i).getDinero() + "€");
                                 jugar();
                             }
                             break;

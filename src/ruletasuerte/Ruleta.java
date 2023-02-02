@@ -49,8 +49,7 @@ public class Ruleta {
                 return -3;
             case 102:
                 premio += ruleta[opt];
-                premio *= 2;
-                break;
+                return -4;
             case 12:
                 premio += ruleta[opt];
                 premio /= 2;

@@ -30,6 +30,10 @@ public class Jugador {
         return dinero;
     }
 
+    public void setDinero( int d ) {
+        dinero = d;
+    }
+
     public boolean getJuega() {
         return juega;
     }
@@ -45,32 +49,45 @@ public class Jugador {
     /**
      * Invoca el método de la clase ruleta de tirar y actua en consecuencia
      */
-    public boolean tirarRuleta() {
+    public String tirarRuleta() {
         aux = Ruleta.tirar();
+        String opt;
+        Scanner sc = new Scanner(System.in);
 
         switch( aux ) {
             case -1:
                 dinero = 0;
                 juega = false;
+                System.out.println("QUIEBRA");
                 System.out.println(nombre + " tiene " + dinero + "€");
-                return false;
-                
+                break;
             case -2: 
                 juega = false;
+                System.out.println("PIERDES TURNO");
                 System.out.println(nombre + " tiene " + dinero + "€");
-                return false;
+                break;
             case -3:
                 comodin++;
+                System.out.println("HAS GANADO UN COMODÍN");
                 System.out.println(nombre + " tiene " + dinero + "€");
-                return true;
+                break;
+            case -4:
+                dinero *= 2;
+                System.out.println("HAS DOBLADO EL DINERO QUE TENÍAS");
+                System.out.println(nombre + " tiene " + dinero + "€");
+                break;
             default:
                 dinero += aux;
                 System.out.println(nombre + " tiene " + dinero + "€");
-                return true;
         }
 
-        
+        System.out.println("Elige una opcion");
+        System.out.println("1.- Tirar Ruleta");
+        System.out.println("2.- Resolver Panel");
+        System.out.println("3.- comprar vocal");
+        opt = sc.nextLine();
 
+        return opt;
     }
 
 

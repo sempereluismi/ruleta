@@ -43,17 +43,11 @@ public class Ruleta {
             case 2:
                 return -2;
             case 3:
-                System.out.println("Introduce una letra");
-                letra = sc.nextLine();
-                Tarjetas.buscarLetra(letra.charAt(0), Juego.getPanel());
                 return -3;
             case 102:
-                premio += ruleta[opt];
                 return -4;
             case 12:
-                premio += ruleta[opt];
-                premio /= 2;
-                break;
+                return -5;
             default:
                 Tarjetas.mostrarPanel(Juego.getPanel());
                 System.out.println("Introduce una letra");

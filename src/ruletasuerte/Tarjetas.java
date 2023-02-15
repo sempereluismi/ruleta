@@ -15,7 +15,6 @@ public class Tarjetas {
 
     private static ArrayList<Integer> panelesUsados = new ArrayList<Integer>();
 
-    private static boolean resuelto = false;
 
     /**
      * Las pistas para saber con que esta relacionado un panel.
@@ -176,10 +175,6 @@ public class Tarjetas {
     };
 
 
-    public static boolean getResuelto() {
-        return resuelto;
-    }
-
     /**
      * Este método escoge un panel al azar.
      */
@@ -200,11 +195,12 @@ public class Tarjetas {
      */
     public static void mostrarPanel(int n) {
         for (int i = 0; i < paneles[n].length; i++) {
+            if(paneles[n][i][0] == ' ') paneles[n][i][1] = 'l';
+        }
+        for (int i = 0; i < paneles[n].length; i++) {
 
-            if (i % 10 == 0)
-                System.out.println("");
-            // System.out.println(panel1[i][0]);
-            if (paneles[n][i][1] == 'l' || paneles[n][i][0] == ' ') {
+            
+            if (paneles[n][i][1] == 'l') {
                 System.out.print(paneles[n][i][0] + " ");
             } else {
                 System.out.print("#" + " ");
@@ -213,7 +209,6 @@ public class Tarjetas {
         }
         System.out.println("");
         System.out.println(pistas[n]);
-        resuelto = estaResuelto(n);
     }
 
     /**

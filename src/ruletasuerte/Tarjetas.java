@@ -187,6 +187,9 @@ public class Tarjetas {
         } while ( panelesUsados.contains(random) );
 
         panelesUsados.add( random );
+        for (int i = 0; i < paneles[random].length; i++) {
+            if(paneles[random][i][0] == ' ') paneles[random][i][1] = 'l';
+        }
         return random;
     }
 
@@ -194,9 +197,7 @@ public class Tarjetas {
      * Este método muestra todas las letras del panel.
      */
     public static void mostrarPanel(int n) {
-        for (int i = 0; i < paneles[n].length; i++) {
-            if(paneles[n][i][0] == ' ') paneles[n][i][1] = 'l';
-        }
+
         for (int i = 0; i < paneles[n].length; i++) {
 
             

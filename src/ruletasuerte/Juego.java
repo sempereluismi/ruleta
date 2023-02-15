@@ -71,7 +71,7 @@ public class Juego {
                     if ( jugadores.get(i).getJuega() ) {
                         opt = jugadores.get(i).opciones();
                     } else {
-                        System.out.println("esto es false boludo solo quiero sbr q pasa aiuda");
+                        System.out.println("A partir d aqui deberia fucar");
                         System.out.println(i);
                         if( i == 2 ) {
                             jugadores.get(0).setJuega(true);

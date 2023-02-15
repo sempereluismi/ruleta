@@ -10,13 +10,14 @@ import java.util.Scanner;
  */
 public class Jugador {
 
-    private int dinero = 0, dineroTotal = 0, comodin, aux;
+    private int dinero = 0, dineroTotal, comodin, aux;
     private boolean juega;
     private String nombre;
 
     public Jugador(String nombre, boolean juega) {
         this.nombre = nombre;
         this.juega = juega;
+        this.dineroTotal = 0;
     }
 
     public void setDineroTotal(int d) {
@@ -147,7 +148,7 @@ public class Jugador {
          * si acierta o no
          */
         aux = Tarjetas.buscarLetra(letra, Juego.getPanel());
-
+        System.out.println(aux);
         // si tiene un comodín no pierde el turno
         if (aux == 0) {
             if (comodin > 0) {

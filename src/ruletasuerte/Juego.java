@@ -11,7 +11,7 @@ public class Juego {
     private String opt, nombre;
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     private int numResueltos = 0;
-    private boolean continua, resuelto;
+    private boolean resuelto;
     private static int panel = 0;
 
     public static int getPanel () {
@@ -50,20 +50,20 @@ public class Juego {
     private void jugar() {
         panel = Tarjetas.elegirPanel();
         Scanner sc = new Scanner(System.in);
-
-        for ( int i = 0; i < jugadores.size(); i++ ){
-            if( i == 0 ) {
-                jugadores.get(i).setJuega(true);
-            } else {
-                jugadores.get(i).setJuega(false);
-            }
-        }
-
         
 
         while (numResueltos < 5) {
 
             for ( int i = 0; i < jugadores.size(); i++ ){
+
+                if ( !jugadores.get(i).getJuega() ) {
+                    if( i == 2 ) {
+                        jugadores.get(0).setJuega(true);
+                    } else {
+                        jugadores.get(i).setJuega(true);
+                    }
+                }
+
                 while ( jugadores.get(i).getJuega() ) {
                     System.out.println("Turno de " + jugadores.get(i).getNombre());
                     jugadores.get(i).tirarRuleta();
@@ -71,12 +71,12 @@ public class Juego {
                     if ( jugadores.get(i).getJuega() ) {
                         opt = jugadores.get(i).opciones();
                     } else {
-                        System.out.println("A partir d aqui deberia fucar");
-                        System.out.println(i);
                         if( i == 2 ) {
                             jugadores.get(0).setJuega(true);
+                            continue;
                         } else {
                             jugadores.get(i+1).setJuega(true);
+                            continue;
                         }
                     }
     
@@ -89,7 +89,7 @@ public class Juego {
                                 jugadores.get(i).setDineroTotal( jugadores.get(i).getDinero() );
                                 jugadores.get(i).setDinero(0);
                                 System.out.println("HAS RESUELTO EL PANEL");
-                                System.out.println("HAS GANADO " + jugadores.get(i).getDinero() + "€");
+                                System.out.println("HAS GANADO " + jugadores.get(i).getDineroTotal() + "€");
                                 jugar();
                             }
                             break;
@@ -102,7 +102,7 @@ public class Juego {
                                 jugadores.get(i).setDineroTotal( jugadores.get(i).getDinero() );
                                 jugadores.get(i).setDinero(0);
                                 System.out.println("HAS RESUELTO EL PANEL");
-                                System.out.println("HAS GANADO " + jugadores.get(i).getDinero() + "€");
+                                System.out.println("HAS GANADO " + jugadores.get(i).getDineroTotal() + "€");
                                 jugar();
                             }
                             break;
@@ -113,10 +113,22 @@ public class Juego {
                                 jugadores.get(i).setDineroTotal( jugadores.get(i).getDinero() );
                                 jugadores.get(i).setDinero(0);
                                 System.out.println("HAS RESUELTO EL PANEL");
-                                System.out.println("HAS GANADO " + jugadores.get(i).getDinero() + "€");
+                                System.out.println("HAS GANADO " + jugadores.get(i).getDineroTotal() + "€");
                                 jugar();
                             }
-                            break;
+                        break;
+                    }
+
+                    if ( jugadores.get(i).getJuega() ) {
+                        opt = jugadores.get(i).opciones();
+                    } else {
+                        if( i == 2 ) {
+                            jugadores.get(0).setJuega(true);
+                            continue;
+                        } else {
+                            jugadores.get(i+1).setJuega(true);
+                            continue;
+                        }
                     }
                 }
             }

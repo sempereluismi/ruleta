@@ -24,6 +24,10 @@ public class Jugador {
         dineroTotal += d;
     }
 
+    public int getDineroTotal() {
+        return dineroTotal;
+    }
+
     public int getDinero() {
         return dinero;
     }

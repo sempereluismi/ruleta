@@ -22,8 +22,7 @@ public class Ruleta {
      */
 
     private static int[] ruleta = { 200, 1, 102, 100, 50, 100, 150, 2, 150, 100, 50, 100, 200, 50, 150, 12, 50, 150,
-            100, 3,
-            150, 100, 50, 100 };
+            100, 3, 150, 100, 50, 100 };
     private static int premio, letras = 0;
     private static String letra;
 

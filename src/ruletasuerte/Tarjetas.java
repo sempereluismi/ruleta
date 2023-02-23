@@ -177,6 +177,7 @@ public class Tarjetas {
      * Este método escoge un panel al azar.
      */
     public static int elegirPanel() {
+        letrasUsadas.clear();
         int random;
 
         do {

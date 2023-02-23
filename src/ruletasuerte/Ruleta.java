@@ -52,6 +52,12 @@ public class Ruleta {
                 System.out.println("Introduce una letra");
                 letra = sc.nextLine();
                 letras = Tarjetas.buscarLetra(letra.charAt(0), Juego.getPanel());
+                while( letras == -1 ) {
+                    Tarjetas.mostrarPanel(Juego.getPanel());
+                    System.out.println("Introduce una letra");
+                    letra = sc.nextLine();
+                    letras = Tarjetas.buscarLetra(letra.charAt(0), Juego.getPanel());
+                }
                 if ( letras == 0 ) return -2;
                 premio += ruleta[opt] * letras;
         }

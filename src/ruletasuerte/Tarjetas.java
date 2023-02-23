@@ -14,27 +14,26 @@ import java.util.ArrayList;
 public class Tarjetas {
 
     private static ArrayList<Integer> panelesUsados = new ArrayList<Integer>();
-
+    private static ArrayList<Character> letrasUsadas = new ArrayList<Character>();
 
     /**
      * Las pistas para saber con que esta relacionado un panel.
      */
-    private static String[] pistas = { 
-        "Un cordial saludo",
-        "No se llevan nada bien",
-        "Un peculiar postre",
-        "Se pasa todo el dia en el sofa"
+    private static String[] pistas = {
+            "Un cordial saludo",
+            "No se llevan nada bien",
+            "Un peculiar postre",
+            "Se pasa todo el dia en el sofa"
     };
-
 
     /*
      * Array que contiene las soluciones de los paneles en string
      */
     private static String[] sol = {
-        "HOLA BUENAS PROGRAMAR MOLA",
-        "ACTUAN COMO PERROS Y GATOS",
-        "HELADO DE MENTA Y CHOCOLATE",
-        "BUSCA TRABAJO PEDAZO DE VAGO"
+            "HOLA BUENAS PROGRAMAR MOLA",
+            "ACTUAN COMO PERROS Y GATOS",
+            "HELADO DE MENTA Y CHOCOLATE",
+            "BUSCA TRABAJO PEDAZO DE VAGO"
     };
     /**
      * Los paneles enteros divididos por letras.
@@ -174,21 +173,20 @@ public class Tarjetas {
 
     };
 
-
     /**
      * Este método escoge un panel al azar.
      */
     public static int elegirPanel() {
         int random;
 
-        
         do {
             random = (int) (Math.random() * 4);
-        } while ( panelesUsados.contains(random) );
+        } while (panelesUsados.contains(random));
 
-        panelesUsados.add( random );
+        panelesUsados.add(random);
         for (int i = 0; i < paneles[random].length; i++) {
-            if(paneles[random][i][0] == ' ') paneles[random][i][1] = 'l';
+            if (paneles[random][i][0] == ' ')
+                paneles[random][i][1] = 'l';
         }
         return random;
     }
@@ -200,7 +198,6 @@ public class Tarjetas {
 
         for (int i = 0; i < paneles[n].length; i++) {
 
-            
             if (paneles[n][i][1] == 'l') {
                 System.out.print(paneles[n][i][0] + " ");
             } else {
@@ -215,8 +212,8 @@ public class Tarjetas {
     /**
      * Este método permite al jugador la opcion de resolver el panel entero.
      */
-    public static boolean resolverPanel( String cadena, int n ) {
-        return ( cadena.equalsIgnoreCase(sol[n]) );
+    public static boolean resolverPanel(String cadena, int n) {
+        return (cadena.equalsIgnoreCase(sol[n]));
     }
 
     /**
@@ -226,25 +223,31 @@ public class Tarjetas {
     public static int buscarLetra(char letra, int n) {
 
         int contador = 0;
+        if (!letrasUsadas.contains(letra)) {
 
-        for (int i = 0; i < paneles[n].length; i++) {
+            for (int i = 0; i < paneles[n].length; i++) {
 
-            if (Character.toLowerCase(paneles[n][i][0]) == Character.toLowerCase(letra)) {
-                paneles[n][i][1] = 'l';
-                contador++;
+                if (Character.toLowerCase(paneles[n][i][0]) == Character.toLowerCase(letra)) {
+                    letrasUsadas.add(letra);
+                    paneles[n][i][1] = 'l';
+                    contador++;
+                }
             }
+            mostrarPanel(n);
+        } else {
+            System.out.println("ESA LETRA YA SE HA DICHO");
+            return -1;
         }
-        mostrarPanel(n);
         return contador;
     }
 
     public static boolean estaResuelto(int n) {
         boolean r = true;
-        for ( int i = 0; i < paneles[n].length; i++ ) {
-            if( paneles[n][i][1] != 'l' ) r = false;
+        for (int i = 0; i < paneles[n].length; i++) {
+            if (paneles[n][i][1] != 'l')
+                r = false;
         }
         return r;
     }
-
 
 }
